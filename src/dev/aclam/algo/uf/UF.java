@@ -5,7 +5,7 @@ package dev.aclam.algo.uf;
  * integer as objects
  */
 public abstract class UF {
-    private int mSize;
+    protected int mSize;
 
     /**
      * Initialize UF data structure with N objects indexed from (0 to N-1)
@@ -26,11 +26,12 @@ public abstract class UF {
      * Checks if p and q are connected by being in the same component
      * @param p an object
      * @param q another object
+     * @return true if p and q are connected, false otherwise.
      */
-    public abstract void connected(int p, int q);
+    public abstract boolean connected(int p, int q);
 
     /**
-     * Finds the component identifier for P(0 to N-1)
+     * Finds the component identifier (root component) for P(0 to N-1)
      * @param p the object
      * @return the component identifier for P(0 to N-1)
      */
