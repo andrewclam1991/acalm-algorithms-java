@@ -6,7 +6,7 @@ import edu.princeton.cs.introcs.StdOut;
 /**
  * Test client for {@link UF} implementations
  */
-public class Client {
+public class TestClient {
 
     public static void main(String[] args) {
         int N = StdIn.readInt();

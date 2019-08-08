@@ -1,11 +1,11 @@
 package dev.aclam.algo;
 
-import dev.aclam.algo.uf.Client;
+import dev.aclam.algo.uf.TestClient;
 
 public class Main {
 
     public static void main(String[] args) throws IllegalAccessException {
 	    // write your code here
-        Client.main(args);
+        TestClient.main(args);
     }
 }
