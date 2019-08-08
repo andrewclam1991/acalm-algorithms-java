@@ -1,6 +1,6 @@
 package dev.aclam.algo.uf;
 
-public class WeightQuickUnionUF extends UF {
+public class WeightQuickUnionPathCompressionUF extends UF {
 
     /**
      * Array to store the root component of each element
@@ -13,7 +13,7 @@ public class WeightQuickUnionUF extends UF {
      */
     private int[] size;
 
-    public WeightQuickUnionUF(int num) {
+    public WeightQuickUnionPathCompressionUF(int num) {
         super(num);
         id = new int[num];
         size = new int[num];
@@ -27,7 +27,7 @@ public class WeightQuickUnionUF extends UF {
     /**
      * Weighted method
      * Only attaches a smaller tree to larger tree, this minimizes
-     * root() operation
+     * root() operation.
      *
      * @param p an object
      * @param q another object
@@ -68,9 +68,17 @@ public class WeightQuickUnionUF extends UF {
         return 0;
     }
 
+    /**
+     * Finds the root of an element by chasing parent pointer
+     * (depth of i array accesses) with path compression
+     *
+     * @param i element
+     * @return the root of the connected element
+     */
     private int root(int i){
         while(i != id[i]){
-            i = id[i];
+            id[i] = id[id[i]]; // path compression, assign parent root to now point to grandparent
+            i = id[i]; // here i will then point to the grandparent
         }
         return i;
     }
