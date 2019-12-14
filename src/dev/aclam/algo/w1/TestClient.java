@@ -1,4 +1,4 @@
-package dev.aclam.algo.uf;
+package dev.aclam.algo.w1;
 
 import edu.princeton.cs.introcs.StdIn;
 import edu.princeton.cs.introcs.StdOut;
@@ -10,14 +10,14 @@ public class TestClient {
 
     public static void main(String[] args) {
         int N = StdIn.readInt();
-        UF uf = new WeightQuickUnionUF(N);
-        while(! StdIn.isEmpty()){
+        UF uf = new WeightQuickUnionPathCompressionByHeightUF(N);
+        while (!StdIn.isEmpty()) {
             int p = StdIn.readInt();
             int q = StdIn.readInt();
-            if (!uf.connected(p,q)){
-                uf.union(p,q);
+            if (!uf.connected(p, q)) {
+                uf.union(p, q);
                 StdOut.println(String.format("%s %s are now connected", p, q));
-            }else{
+            } else {
                 StdOut.println(String.format("%s %s are already connected", p, q));
             }
         }

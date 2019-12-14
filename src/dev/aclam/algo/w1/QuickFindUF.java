@@ -1,4 +1,4 @@
-package dev.aclam.algo.uf;
+package dev.aclam.algo.w1;
 
 /**
  * Implementation of {@link UF} that is quick to

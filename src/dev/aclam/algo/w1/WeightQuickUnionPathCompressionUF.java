@@ -1,9 +1,6 @@
-package dev.aclam.algo.uf;
+package dev.aclam.algo.w1;
 
-/**
- * Implementation
- */
-public class WeightQuickUnionPathCompressionByHeightUF extends UF {
+public class WeightQuickUnionPathCompressionUF extends UF {
 
     /**
      * Array to store the root component of each element
@@ -14,16 +11,16 @@ public class WeightQuickUnionPathCompressionByHeightUF extends UF {
     /**
      * Array to keep track of size of each component
      */
-    private int[] height;
+    private int[] size;
 
-    public WeightQuickUnionPathCompressionByHeightUF(int num) {
+    public WeightQuickUnionPathCompressionUF(int num) {
         super(num);
         id = new int[num];
-        height = new int[num];
+        size = new int[num];
 
         for (int i = 0; i < num; i++){
             id[i] = i;
-            height[i] = 1;
+            size[i] = 1;
         }
     }
 
@@ -43,16 +40,16 @@ public class WeightQuickUnionPathCompressionByHeightUF extends UF {
         // When they have the same root, no need to union
         if (pRoot == qRoot) return;
 
-        if (height[p] > height[q]){
+        if (size[p] > size[q]){
             // if size of p is larger
             // attach the smaller q's root to p, this grows the p tree's leaves
             id[q] = pRoot;
-            height[p] += height[q];
+            size[p] += size[q];
         } else {
             // else q is larger
             // attach the smaller p's root to q, this grows the q tree's leaves
             id[p] = qRoot;
-            height[q] += height[p];
+            size[q] += size[p];
         }
     }
 

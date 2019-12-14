@@ -1,6 +1,6 @@
 package dev.aclam.algo;
 
-import dev.aclam.algo.uf.TestClient;
+import dev.aclam.algo.w1.TestClient;
 
 public class Main {
 

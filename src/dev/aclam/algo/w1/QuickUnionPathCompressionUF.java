@@ -1,14 +1,14 @@
-package dev.aclam.algo.uf;
+package dev.aclam.algo.w1;
 
 /**
- * Implementation of {@link UF} that is slightly
- * quicker to merge two connected components
+ * Implementation of {@link UF} that modifies {@link QuickUnionUF}
+ * to include path compression
  */
-public class QuickUnionUF extends UF {
+public class QuickUnionPathCompressionUF extends UF {
 
     private int[] id;
 
-    public QuickUnionUF(int size) {
+    public QuickUnionPathCompressionUF(int size) {
         super(size);
         id = new int[size];
         for(int i = 0; i < size; i++){
@@ -49,13 +49,15 @@ public class QuickUnionUF extends UF {
 
     /**
      * Finds the root of an element by chasing parent pointer
-     * (depth of i array accesses)
+     * (depth of i array accesses) with path compression
+     *
      * @param i element
      * @return the root of the connected element
      */
     private int root(int i){
         while(i != id[i]){
-            i = id[i];
+            id[i] = id[id[i]]; // path compression, assign parent root to now point to grandparent
+            i = id[i]; // here i retrieves the pointer to grandparent
         }
         return i;
     }

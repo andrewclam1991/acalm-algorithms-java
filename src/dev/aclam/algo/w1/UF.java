@@ -1,4 +1,4 @@
-package dev.aclam.algo.uf;
+package dev.aclam.algo.w1;
 
 /**
  * Base class for all {@link UF} implementations that uses
