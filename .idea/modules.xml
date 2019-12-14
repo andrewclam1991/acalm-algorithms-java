@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/acalm-algorithms-java.iml" filepath="$PROJECT_DIR$/acalm-algorithms-java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/perlocation/perlocation.iml" filepath="$PROJECT_DIR$/perlocation/perlocation.iml" />
     </modules>
   </component>
 </project>
