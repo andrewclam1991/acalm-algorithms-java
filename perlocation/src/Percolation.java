@@ -1,6 +1,8 @@
+import edu.princeton.cs.algs4.StdIn;
+
 public class Percolation {
 
-    // keeps track of sites, 0 means blocked, 1 means open
+    // tracks the sites' values, 0 means blocked, 1 means open
     int[][] sites;
 
     // tracks the number of open sites;
@@ -45,6 +47,34 @@ public class Percolation {
 
     // test client (optional)
     public static void main(String[] args){
+        System.out.println("Please enter the size of the grid: ");
+        int n = StdIn.readInt();
+        Percolation percolation = new Percolation(n);
 
+        while(!StdIn.isEmpty()){
+            String command = StdIn.readString();
+            int row, col;
+            switch (command){
+                case "isOpen":
+                    row = StdIn.readInt();
+                    col = StdIn.readInt();
+                    System.out.println(percolation.isOpen(row, col));
+                    break;
+                case "isFull":
+                    row = StdIn.readInt();
+                    col = StdIn.readInt();
+                    System.out.println(percolation.isFull(row, col));
+                    break;
+                case "numOpenSites":
+                    System.out.println(percolation.numberOfOpenSites());
+                    break;
+                case "percolates":
+                    System.out.println(percolation.percolates());
+                    break;
+                default:
+                    System.out.println("ERROR, unrecognized command");
+                    break;
+            }
+        }
     }
 }
