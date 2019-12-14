@@ -1,3 +1,5 @@
+import edu.princeton.cs.algs4.StdIn;
+
 public class PercolationStats {
 
     // perform independent trials on an n-by-n grid
@@ -27,7 +29,12 @@ public class PercolationStats {
 
     // test client (see below)
     public static void main(String[] args) {
-
+        int n = StdIn.readInt();
+        int T = StdIn.readInt();
+        PercolationStats stats = new PercolationStats(n, T);
+        System.out.println(String.format("mean   =  %s", stats.mean()));
+        System.out.println(String.format("stddev =  %s", stats.stddev()));
+        System.out.println(String.format("95%% ci =  [%s,%s]", stats.confidenceLo(), stats.confidenceHi()));
     }
 
 }
